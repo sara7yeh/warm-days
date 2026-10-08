@@ -8,7 +8,6 @@ import {
   NotebookPen,
   Settings,
   ChevronRight,
-  ArrowUpRight,
   Flower2,
   Clock3,
   Heart,
@@ -219,33 +218,6 @@ function Today({ onQuick }: { onQuick: () => void }) {
           </button>
         }
       />
-      <div className="welcome-card">
-        <div className="welcome-copy">
-          <span className="pill light">
-            <Sun size={14} /> 今日小笺
-          </span>
-          <h2>
-            不用赶路，
-            <br />
-            按照自己的节奏就好。
-          </h2>
-          <p>一件件完成，一点点靠近喜欢的自己。</p>
-          <a href="#/study" className="welcome-link">
-            开始一段专注 <ArrowUpRight size={17} />
-          </a>
-        </div>
-        <div className="welcome-date">
-          <span>
-            {new Date(today + "T12:00:00")
-              .toLocaleDateString("en", { month: "long" })
-              .toUpperCase()}
-          </span>
-          <strong>{today.slice(-2)}</strong>
-          <span>{formatDate(today).split("日")[1]}</span>
-          <div className="date-rule" />
-          <small>好日子，正在发生</small>
-        </div>
-      </div>
       <div className="stat-grid">
         {[
           ["今天的日程", items.length, "件事，慢慢来", CalendarDays],
