@@ -758,7 +758,7 @@ textarea {
 }
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
 }
 .form-actions {
@@ -1795,4 +1795,33 @@ td {
   :root textarea {
     font-size: 16px;
   }
+}
+
+/* Native iOS date/time controls must be allowed to shrink to their grid cell. */
+.field > input,
+.field > select,
+.field > textarea {
+  min-width: 0;
+  max-width: 100%;
+  inline-size: 100%;
+  color: #88796c;
+  font-weight: 400;
+  font-size: 16px;
+  /* Smaller glyphs while retaining the 16px focus size required by iOS. */
+  font-size-adjust: 0.46;
+}
+.field > input[type="date"],
+.field > input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+}
+.field > input::-webkit-date-and-time-value {
+  min-width: 0;
+  text-align: left;
+}
+.field > input::placeholder,
+.field > textarea::placeholder {
+  color: #afa397;
+  opacity: 1;
 }
